@@ -1,0 +1,101 @@
+/* RTPConstructionLoader.css - Minimal Professional Architectural Preloader */
+
+#rtp-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto;
+  background-color: var(--rtp-ink, #0C0E10);
+}
+
+.rtp-curtain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50.5%;
+  background-color: var(--rtp-ink, #0C0E10);
+  z-index: 1;
+  will-change: transform;
+  transition: transform 450ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.rtp-curtain-top { top: 0; transform-origin: top center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.rtp-curtain-bottom { bottom: 0; transform-origin: bottom center; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+#rtp-preloader.is-exiting .rtp-curtain-top { transform: translateY(-100%); }
+#rtp-preloader.is-exiting .rtp-curtain-bottom { transform: translateY(100%); }
+#rtp-preloader.is-exiting .rtp-stage { opacity: 0; transform: scale(0.97); transition: opacity 250ms ease, transform 250ms ease; }
+
+.rtp-blueprint-bg {
+  position: absolute; inset: 0; z-index: 2;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0; transform: scale(1.02);
+  animation: rtp-grid-intro 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rtp-vignette {
+  position: absolute; inset: 0; z-index: 3;
+  background: radial-gradient(circle at center, transparent 30%, rgba(12, 14, 16, 0.98) 95%);
+  pointer-events: none;
+}
+
+@keyframes rtp-grid-intro { to { opacity: 1; transform: scale(1); } }
+
+.rtp-stage {
+  position: relative; z-index: 10; width: min(520px, 80vw);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+.rtp-svg-wrap { width: 100%; aspect-ratio: 500 / 170; position: relative; }
+.rtp-svg { width: 100%; height: 100%; overflow: visible; }
+
+.rtp-line-main { fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; transition: stroke 400ms ease; }
+.rtp-line-cyan { fill: none; stroke: #3FB6C4; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.rtp-line-draw { stroke-dasharray: 400; stroke-dashoffset: 400; animation: rtp-draw 1250ms cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+
+.rtp-seg-1 { animation-delay: 180ms; }
+.rtp-seg-2 { animation-delay: 280ms; }
+.rtp-seg-3 { animation-delay: 380ms; }
+.rtp-seg-4 { animation-delay: 480ms; }
+.rtp-seg-5 { animation-delay: 580ms; }
+.rtp-seg-6 { animation-delay: 680ms; }
+.rtp-seg-7 { animation-delay: 780ms; }
+.rtp-seg-8 { animation-delay: 880ms; }
+
+@keyframes rtp-draw { to { stroke-dashoffset: 0; } }
+
+.rtp-node-outer { fill: #0C0E10; stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.5; }
+.rtp-node-inner { fill: #ff6a00; opacity: 0; transition: opacity 300ms ease; }
+.rtp-stage.resolved .rtp-node-inner { opacity: 1; }
+
+.rtp-crane-group { transform-origin: 430px -30px; transition: opacity 300ms ease; }
+.rtp-crane-arm { stroke: #ff6a00; stroke-width: 1.8; stroke-linecap: round; fill: none; }
+.rtp-crane-cable { stroke: rgba(255, 255, 255, 0.7); stroke-width: 1; stroke-dasharray: 3 2; }
+.rtp-crane-girder { fill: #ff6a00; stroke: #ffffff; stroke-width: 1; }
+
+.rtp-keystone-target { stroke-dasharray: 200; stroke-dashoffset: 200; opacity: 0; transition: opacity 50ms ease; }
+.rtp-keystone-target.is-snapped { opacity: 1; stroke-dashoffset: 0; stroke: #ff6a00; animation: rtp-snap-pulse 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes rtp-snap-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); filter: drop-shadow(0 0 8px #ff6a00); } 100% { transform: scale(1); } }
+
+.rtp-lockup { width: 100%; margin-top: 24px; display: flex; flex-direction: column; align-items: center; opacity: 0; transform: translateY(8px); transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.16, 1, 0.3, 1); }
+.rtp-stage.resolved .rtp-lockup { opacity: 1; transform: translateY(0); }
+.rtp-wordmark-main { font-size: clamp(2.2rem, 6.5vw, 4rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; line-height: 0.9; color: #ffffff; }
+.rtp-wordmark-dot { color: #ff6a00; }
+.rtp-divider-line { width: 100%; height: 1.5px; background: #ff6a00; margin: 10px 0 8px 0; transform: scaleX(0); transform-origin: center center; transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1) 100ms; }
+.rtp-stage.resolved .rtp-divider-line { transform: scaleX(1); }
+.rtp-wordmark-sub { font-size: clamp(0.75rem, 2.2vw, 1.35rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.34em; color: #ffffff; opacity: 0.9; padding-left: 0.34em; }
+.rtp-tagline { margin-top: 12px; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.22em; color: #ffffff; opacity: 0; transition: opacity 400ms ease 300ms; }
+.rtp-stage.resolved .rtp-tagline { opacity: 0.6; }
+
+.rtp-progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 2.5px; background-color: rgba(255, 255, 255, 0.08); z-index: 10; overflow: hidden; }
+.rtp-progress-bar-fill { width: 100%; height: 100%; background: #ff6a00; transform: scaleX(0); transform-origin: left center; will-change: transform; transition: transform 60ms linear; }
+.rtp-counter-wrap { margin-top: 18px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: 0.12em; color: #ff6a00; opacity: 0.85; display: flex; align-items: center; gap: 2px; }
+.rtp-stage.resolved .rtp-counter-wrap { opacity: 0; transition: opacity 250ms ease; }
