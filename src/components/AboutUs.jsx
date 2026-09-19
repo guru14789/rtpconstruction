@@ -108,7 +108,7 @@ export default function AboutUs() {
               transition={{ duration: 0.6, delay: 0.3 }}
               style={{ color: '#9aa0a6', fontSize: 16, lineHeight: 1.8, marginBottom: 16 }}
             >
-              RTP Construction is committed to delivering high-quality construction solutions through strong engineering practices, skilled professionals and disciplined project execution.
+              RTP CONSTRUCTION is committed to delivering high-quality construction solutions through strong engineering practices, skilled professionals and disciplined project execution.
             </motion.p>
 
             <motion.p

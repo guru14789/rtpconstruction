@@ -30,7 +30,7 @@ export default function WhatsAppBot() {
               boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             }}
           >
-            <span>💬 Chat with RTP Construction</span>
+            <span>💬 Chat with RTP CONSTRUCTION</span>
             <div style={{
               position: 'absolute',
               bottom: -6,

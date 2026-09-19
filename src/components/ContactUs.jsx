@@ -76,7 +76,7 @@ export default function ContactUs() {
             transition={{ delay: 0.1 }}
             style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 50px)', color: '#F7F7F5' }}
           >
-            Contact RTP Construction
+            Contact RTP CONSTRUCTION
           </motion.h2>
         </div>
 

@@ -13,7 +13,7 @@ export function HeroScrollDemo() {
               Welcome
             </span>
             <h1 className="text-4xl md:text-[5rem] font-bold text-white uppercase tracking-tighter leading-none">
-              RTP Construction
+              RTP CONSTRUCTION
             </h1>
           </div>
         }

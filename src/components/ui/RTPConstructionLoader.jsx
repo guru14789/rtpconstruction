@@ -82,7 +82,7 @@ export function RTPConstructionLoader({ onComplete, duration = 2600 }) {
       aria-valuenow={progress} 
       aria-valuemin="0" 
       aria-valuemax="100" 
-      aria-label="Loading RTP Construction"
+      aria-label="Loading RTP CONSTRUCTION"
     >
       <div className="rtp-curtain rtp-curtain-top"></div>
       <div className="rtp-curtain rtp-curtain-bottom"></div>
