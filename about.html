@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - RTP CONSTRUCTION | Engineering & Architectural Mastery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Momo+Trust+Display&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --bg-dark: #121212;
@@ -29,33 +32,133 @@
       --rtp-overlay: rgba(12, 14, 16, 0.98);
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
     /* Utility */
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    .section-pad { padding-top: 100px; padding-bottom: 100px; }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-pad {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
 
     /* Animation Classes */
-    .anim-fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .anim-slide-right { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .anim-scale-up { opacity: 0; transform: scale(0.92); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .in-view { opacity: 1 !important; transform: none !important; }
+    .anim-fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
-    .delay-300 { transition-delay: 300ms; }
-    .delay-400 { transition-delay: 400ms; }
+    .anim-slide-right {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .anim-scale-up {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .in-view {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
 
     /* Nav */
-    nav { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; color: white; background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
-    .logo { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; text-decoration: none; color: white; }
-    .nav-center { display: flex; gap: 40px; }
-    .nav-center a { color: white; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; opacity: 0.85; }
-    .nav-center a:hover, .nav-center a.active { color: var(--accent-orange); opacity: 1; }
-    .nav-socials { display: flex; align-items: center; gap: 8px; }
-    .nav-socials-item { position: relative; display: inline-flex; }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      background: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-center a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      opacity: 0.85;
+    }
+
+    .nav-center a:hover,
+    .nav-center a.active {
+      color: var(--accent-orange);
+      opacity: 1;
+    }
+
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-socials-item {
+      position: relative;
+      display: inline-flex;
+    }
+
     .social-icon-btn {
       position: relative;
       width: 36px;
@@ -71,6 +174,7 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       overflow: hidden;
     }
+
     .social-icon-btn .fill-bg {
       position: absolute;
       bottom: 0;
@@ -80,17 +184,23 @@
       transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 1;
     }
+
     .social-icon-btn:hover .fill-bg {
       height: 100%;
     }
-    .social-icon-btn svg, .social-icon-btn img {
+
+    .social-icon-btn svg,
+    .social-icon-btn img {
       position: relative;
       z-index: 10;
       transition: transform 0.3s ease;
     }
-    .social-icon-btn:hover svg, .social-icon-btn:hover img {
+
+    .social-icon-btn:hover svg,
+    .social-icon-btn:hover img {
       transform: scale(1.1);
     }
+
     .social-tooltip-text {
       position: absolute;
       bottom: -34px;
@@ -107,8 +217,9 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 50;
       pointer-events: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
+
     .nav-socials-item:hover .social-tooltip-text {
       opacity: 1;
       visibility: visible;
@@ -128,17 +239,21 @@
       padding-bottom: 80px;
       overflow: hidden;
     }
+
     .about-hero-overlay {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: linear-gradient(to bottom, rgba(12, 14, 16, 0.75) 0%, rgba(12, 14, 16, 0.95) 100%);
       z-index: 1;
     }
+
     .about-hero-content {
       position: relative;
       z-index: 2;
       text-align: center;
       max-width: 900px;
     }
+
     .tag-badge {
       display: inline-block;
       color: var(--accent-orange);
@@ -152,6 +267,7 @@
       border-radius: 30px;
       border: 1px solid rgba(255, 106, 0, 0.3);
     }
+
     .about-hero h1 {
       font-size: clamp(38px, 5.5vw, 72px);
       line-height: 1.05;
@@ -160,9 +276,10 @@
       text-transform: uppercase;
       margin-bottom: 24px;
     }
+
     .about-hero p {
       font-size: clamp(16px, 1.8vw, 20px);
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       line-height: 1.6;
       max-width: 760px;
       margin: 0 auto 40px;
@@ -180,9 +297,24 @@
       padding: 30px 20px;
       margin-top: 40px;
     }
-    .ribbon-item { text-align: center; }
-    .ribbon-num { font-size: 36px; font-weight: 800; color: var(--accent-orange); }
-    .ribbon-label { font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+    .ribbon-item {
+      text-align: center;
+    }
+
+    .ribbon-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent-orange);
+    }
+
+    .ribbon-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
 
     /* Story & Philosophy Section */
     .story-grid {
@@ -191,6 +323,7 @@
       gap: 60px;
       align-items: center;
     }
+
     .story-left h2 {
       font-size: 44px;
       line-height: 1.1;
@@ -198,60 +331,239 @@
       letter-spacing: -1px;
       margin-bottom: 24px;
     }
+
     .story-left p {
       color: var(--text-gray);
       font-size: 16px;
       line-height: 1.8;
       margin-bottom: 20px;
     }
+
     .story-imgs {
       position: relative;
       display: flex;
       gap: 20px;
     }
+
     .story-imgs img {
       border-radius: 20px;
       object-fit: cover;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
-    .s-img-1 { width: 60%; aspect-ratio: 4/5; }
-    .s-img-2 { width: 40%; aspect-ratio: 4/5; margin-top: 40px; }
+
+    .s-img-1 {
+      width: 60%;
+      aspect-ratio: 4/5;
+    }
+
+    .s-img-2 {
+      width: 40%;
+      aspect-ratio: 4/5;
+      margin-top: 40px;
+    }
 
     /* Core Values Section */
-    .values-sec { background: var(--bg-dark); color: white; border-radius: 40px; padding: 100px 40px; margin-top: 60px; }
-    .values-header { text-align: center; max-width: 650px; margin: 0 auto 60px; }
-    .values-header h2 { font-size: 44px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
-    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    .value-card { background: #1a1a1a; padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s ease; }
-    .value-card:hover { transform: translateY(-8px); border-color: var(--accent-orange); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-    .v-icon { width: 52px; height: 52px; background: rgba(255, 106, 0, 0.15); color: var(--accent-orange); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; }
-    .value-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
-    .value-card p { color: #888888; font-size: 15px; line-height: 1.6; }
+    .values-sec {
+      background: var(--bg-dark);
+      color: white;
+      border-radius: 40px;
+      padding: 100px 40px;
+      margin-top: 60px;
+    }
+
+    .values-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 60px;
+    }
+
+    .values-header h2 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .value-card {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-orange);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .v-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 106, 0, 0.15);
+      color: var(--accent-orange);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .value-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: #888888;
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
     /* Leadership Team Section */
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
-    .team-card { background: var(--bg-gray); border-radius: 24px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease; }
-    .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-    .team-img-wrap { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #e0e0e0; }
-    .team-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .team-card:hover .team-img-wrap img { transform: scale(1.06); }
-    .team-info { padding: 28px; }
-    .team-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .team-role { color: var(--accent-orange); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .team-bio { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .team-card {
+      background: var(--bg-gray);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .team-img-wrap {
+      width: 100%;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: #e0e0e0;
+    }
+
+    .team-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover .team-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .team-info {
+      padding: 28px;
+    }
+
+    .team-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      color: var(--accent-orange);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .team-bio {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
 
     /* Timeline Accordion Section */
-    .timeline-sec { max-width: 900px; margin: 0 auto; }
-    .timeline-sec h2 { font-size: 44px; font-weight: 700; letter-spacing: -1px; text-align: center; margin-bottom: 50px; }
-    .timeline-item { background: white; border: 1px solid var(--border-color); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; cursor: pointer; transition: all 0.3s ease; }
-    .timeline-item:hover { border-color: var(--accent-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .timeline-header { display: flex; justify-content: space-between; align-items: center; }
-    .t-year { font-size: 28px; font-weight: 800; color: var(--accent-orange); }
-    .t-title { font-size: 20px; font-weight: 600; flex: 1; margin-left: 24px; }
-    .t-icon { font-size: 20px; transition: transform 0.3s ease; }
-    .timeline-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.4s ease; color: var(--text-gray); font-size: 15px; line-height: 1.7; padding-left: 88px; }
-    .timeline-item.open .timeline-body { max-height: 150px; margin-top: 16px; }
-    .timeline-item.open .t-icon { transform: rotate(180deg); color: var(--accent-orange); }
+    .timeline-sec {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .timeline-sec h2 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .timeline-item {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .t-year {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent-orange);
+    }
+
+    .t-title {
+      font-size: 20px;
+      font-weight: 600;
+      flex: 1;
+      margin-left: 24px;
+    }
+
+    .t-icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, margin-top 0.4s ease;
+      color: var(--text-gray);
+      font-size: 15px;
+      line-height: 1.7;
+      padding-left: 88px;
+    }
+
+    .timeline-item.open .timeline-body {
+      max-height: 150px;
+      margin-top: 16px;
+    }
+
+    .timeline-item.open .t-icon {
+      transform: rotate(180deg);
+      color: var(--accent-orange);
+    }
 
     /* Wide Callout Banner */
     .about-callout {
@@ -264,20 +576,101 @@
       align-items: center;
       justify-content: center;
     }
-    .about-callout img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .callout-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-    .callout-quote-box { position: relative; z-index: 2; text-align: center; color: white; max-width: 800px; padding: 40px; }
-    .callout-quote-box h3 { font-size: clamp(24px, 3.5vw, 38px); font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
-    .callout-quote-box span { font-size: 14px; color: var(--accent-orange); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+
+    .about-callout img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .callout-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .callout-quote-box {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      max-width: 800px;
+      padding: 40px;
+    }
+
+    .callout-quote-box h3 {
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .callout-quote-box span {
+      font-size: 14px;
+      color: var(--accent-orange);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
     /* Footer */
-    footer { background: var(--bg-dark); color: white; padding: 100px 0 40px; margin-top: 100px; text-align: center; }
-    .footer-top { display: flex; justify-content: space-between; text-align: left; margin: 0 auto 100px; }
-    .f-col h4 { font-size: 14px; color: #888; margin-bottom: 20px; }
-    .f-col a { display: block; color: white; text-decoration: none; margin-bottom: 12px; font-size: 14px; transition: color 0.3s; }
-    .f-col a:hover { color: var(--accent-orange); }
-    .footer-huge { font-family: 'Momo Trust Display', sans-serif; font-size: clamp(2rem, 6.8vw, 6.8rem); font-weight: 800; line-height: 1; letter-spacing: -1px; max-width: 100%; text-align: center; margin: 0 auto; overflow: hidden; white-space: nowrap; text-transform: uppercase; }
-    .footer-bottom { display: flex; justify-content: space-between; margin: 40px auto 0; font-size: 14px; color: #888; }
+    footer {
+      background: var(--bg-dark);
+      color: white;
+      padding: 100px 0 40px;
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      margin: 0 auto 100px;
+    }
+
+    .f-col h4 {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .f-col a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .f-col a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-huge {
+      font-family: 'Momo Trust Display', sans-serif;
+      font-size: clamp(3.8rem, 9vw, 11rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -1px;
+      max-width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      overflow: hidden;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px auto 0;
+      font-size: 14px;
+      color: #888;
+    }
 
     /* WhatsApp Chatbot Widget Styles */
     .wa-widget-btn {
@@ -298,45 +691,270 @@
       border: none;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .wa-widget-btn:hover { transform: scale(1.08); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
-    .wa-badge {
-      position: absolute; top: -2px; right: -2px; background: #ff3b30; color: white; font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white;
+
+    .wa-widget-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
     }
-    .wa-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #25D366; animation: wa-ring 2s infinite; pointer-events: none; }
-    @keyframes wa-ring { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
+
+    .wa-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: #ff3b30;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid white;
+    }
+
+    .wa-pulse {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      animation: wa-ring 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes wa-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
 
     .wa-modal {
-      position: fixed; bottom: 100px; right: 28px; z-index: 99999; width: 360px; max-width: calc(100vw - 40px); background: #111b21; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; transform: scale(0.8) translateY(20px); opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(255,255,255,0.08);
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      z-index: 99999;
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      background: #111b21;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.8) translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .wa-modal.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: auto; }
-    .wa-header { background: #202c33; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; color: white; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .wa-header-left { display: flex; align-items: center; gap: 12px; }
-    .wa-avatar { position: relative; width: 42px; height: 42px; border-radius: 50%; background: #ff6a00; color: white; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .wa-status-dot { position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: #25D366; border-radius: 50%; border: 2px solid #202c33; }
-    .wa-title h4 { font-size: 15px; font-weight: 600; line-height: 1.2; color: #e9edef; display: flex; align-items: center; gap: 4px; }
-    .wa-title span { font-size: 12px; color: #8696a0; }
-    .wa-close-btn { background: none; border: none; color: #8696a0; cursor: pointer; font-size: 20px; transition: color 0.2s; padding: 4px; }
-    .wa-close-btn:hover { color: white; }
-    .wa-body { padding: 20px; background-color: #0b141a; background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 16px 16px; display: flex; flex-direction: column; gap: 14px; max-height: 380px; overflow-y: auto; }
-    .wa-time { align-self: center; background: rgba(17, 27, 33, 0.7); color: #8696a0; font-size: 11px; padding: 4px 10px; border-radius: 8px; margin-bottom: 4px; }
-    .wa-msg { background: #202c33; color: #e9edef; padding: 12px 14px; border-radius: 0 16px 16px 16px; font-size: 13.5px; line-height: 1.45; max-width: 88%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-    .wa-chips { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-    .wa-chip { background: rgba(37, 211, 102, 0.1); border: 1px solid rgba(37, 211, 102, 0.25); color: #25D366; padding: 8px 12px; border-radius: 12px; font-size: 12.5px; font-weight: 500; cursor: pointer; text-align: left; transition: all 0.2s ease; }
-    .wa-chip:hover { background: #25D366; color: #0b141a; font-weight: 600; }
-    .wa-footer { background: #202c33; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
-    .wa-input { flex: 1; background: #2a3942; border: none; outline: none; color: #e9edef; padding: 10px 14px; border-radius: 20px; font-size: 13.5px; }
-    .wa-input::placeholder { color: #8696a0; }
-    .wa-send-btn { width: 36px; height: 36px; border-radius: 50%; background: #25D366; color: #0b141a; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; }
-    .wa-send-btn:hover { transform: scale(1.08); }
+
+    .wa-modal.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .wa-header {
+      background: #202c33;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .wa-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wa-avatar {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ff6a00;
+      color: white;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .wa-status-dot {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 11px;
+      height: 11px;
+      background: #25D366;
+      border-radius: 50%;
+      border: 2px solid #202c33;
+    }
+
+    .wa-title h4 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #e9edef;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wa-title span {
+      font-size: 12px;
+      color: #8696a0;
+    }
+
+    .wa-close-btn {
+      background: none;
+      border: none;
+      color: #8696a0;
+      cursor: pointer;
+      font-size: 20px;
+      transition: color 0.2s;
+      padding: 4px;
+    }
+
+    .wa-close-btn:hover {
+      color: white;
+    }
+
+    .wa-body {
+      padding: 20px;
+      background-color: #0b141a;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .wa-time {
+      align-self: center;
+      background: rgba(17, 27, 33, 0.7);
+      color: #8696a0;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+    }
+
+    .wa-msg {
+      background: #202c33;
+      color: #e9edef;
+      padding: 12px 14px;
+      border-radius: 0 16px 16px 16px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      max-width: 88%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .wa-chips {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .wa-chip {
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+      color: #25D366;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .wa-chip:hover {
+      background: #25D366;
+      color: #0b141a;
+      font-weight: 600;
+    }
+
+    .wa-footer {
+      background: #202c33;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-input {
+      flex: 1;
+      background: #2a3942;
+      border: none;
+      outline: none;
+      color: #e9edef;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 13.5px;
+    }
+
+    .wa-input::placeholder {
+      color: #8696a0;
+    }
+
+    .wa-send-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #0b141a;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .wa-send-btn:hover {
+      transform: scale(1.08);
+    }
 
     @media (max-width: 900px) {
-      .story-grid, .values-grid, .team-grid, .stats-ribbon { grid-template-columns: 1fr; }
-      .nav-center { display: none; }
-      .about-hero h1 { font-size: 40px; }
-      .about-callout { height: 380px; }
+
+      .story-grid,
+      .values-grid,
+      .team-grid,
+      .stats-ribbon {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-center {
+        display: none;
+      }
+
+      .about-hero h1 {
+        font-size: 40px;
+      }
+
+      .about-callout {
+        height: 380px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Nav Header -->
@@ -352,7 +970,12 @@
       <div class="nav-socials-item">
         <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn">
           <div class="fill-bg" style="background-color: #E4405F;"></div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
         </a>
         <div class="social-tooltip-text" style="background-color: #E4405F;">Instagram</div>
       </div>
@@ -360,7 +983,12 @@
       <div class="nav-socials-item">
         <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn">
           <div class="fill-bg" style="background-color: #0A66C2;"></div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
         </a>
         <div class="social-tooltip-text" style="background-color: #0A66C2;">LinkedIn</div>
       </div>
@@ -374,7 +1002,8 @@
       <span class="tag-badge anim-fade-up">OUR LEGACY & VISION</span>
       <h1 class="anim-fade-up delay-100">ENGINEERING EXCELLENCE & ARCHITECTURAL MASTERY</h1>
       <p class="anim-fade-up delay-200">
-        For over 18 years, <strong>RTP CONSTRUCTION</strong> has led the industry in building landmark high-rises, luxury residential complexes, and sustainable urban infrastructure with uncompromising precision.
+        For over 18 years, <strong>RTP CONSTRUCTION</strong> has led the industry in building landmark high-rises,
+        luxury residential complexes, and sustainable urban infrastructure with uncompromising precision.
       </p>
 
       <div class="stats-ribbon anim-fade-up delay-300">
@@ -402,13 +1031,19 @@
   <section class="container section-pad">
     <div class="story-grid">
       <div class="story-left anim-slide-right">
-        <span style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">WHO WE ARE</span>
+        <span
+          style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">WHO
+          WE ARE</span>
         <h2>Shaping Skylines with Structural Integrity</h2>
         <p>
-          Founded in 2008, <strong>RTP CONSTRUCTION</strong> was built on a single, uncompromising belief: that world-class architecture begins with structural perfection. Over nearly two decades, we have evolved from a specialized structural firm into a premier turnkey construction enterprise.
+          Founded in 2008, <strong>RTP CONSTRUCTION</strong> was built on a single, uncompromising belief: that
+          world-class architecture begins with structural perfection. Over nearly two decades, we have evolved from a
+          specialized structural firm into a premier turnkey construction enterprise.
         </p>
         <p>
-          Our team of senior structural engineers, BIM architects, and project directors utilize advanced 3D building information modeling, eco-certified concrete matrices, and kinetic construction workflows to execute complex developments seamlessly.
+          Our team of senior structural engineers, BIM architects, and project directors utilize advanced 3D building
+          information modeling, eco-certified concrete matrices, and kinetic construction workflows to execute complex
+          developments seamlessly.
         </p>
       </div>
       <div class="story-imgs anim-fade-up delay-200">
@@ -422,29 +1057,35 @@
   <section class="container">
     <div class="values-sec anim-fade-up">
       <div class="values-header">
-        <span style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">OUR FOUNDATIONAL PILLARS</span>
+        <span
+          style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">OUR
+          FOUNDATIONAL PILLARS</span>
         <h2>Core Values Driving Every Masterpiece</h2>
       </div>
       <div class="values-grid">
         <div class="value-card anim-fade-up delay-100">
           <div class="v-icon">🏗️</div>
           <h3>Precision Engineering</h3>
-          <p>We deploy high-grade seismic-rated concrete, stress-tested steel framing, and sub-millimeter laser alignment across every structural phase.</p>
+          <p>We deploy high-grade seismic-rated concrete, stress-tested steel framing, and sub-millimeter laser
+            alignment across every structural phase.</p>
         </div>
         <div class="value-card anim-fade-up delay-200">
           <div class="v-icon">🌿</div>
           <h3>Sustainable Innovation</h3>
-          <p>Pioneering LEED-certified eco-building standards, solar envelope integrations, and carbon-reduced concrete formulations for future-ready structures.</p>
+          <p>Pioneering LEED-certified eco-building standards, solar envelope integrations, and carbon-reduced concrete
+            formulations for future-ready structures.</p>
         </div>
         <div class="value-card anim-fade-up delay-300">
           <div class="v-icon">🛡️</div>
           <h3>100% Safety Compliance</h3>
-          <p>Maintaining an industry-leading zero-incident safety record through automated site monitoring, ISO 45001 standards, and daily hazard audits.</p>
+          <p>Maintaining an industry-leading zero-incident safety record through automated site monitoring, ISO 45001
+            standards, and daily hazard audits.</p>
         </div>
         <div class="value-card anim-fade-up delay-400">
           <div class="v-icon">🤝</div>
           <h3>Client-Centric Transparency</h3>
-          <p>Real-time telemetry, milestone tracking, and dedicated architectural concierges ensuring complete clarity from blueprint draft to handover.</p>
+          <p>Real-time telemetry, milestone tracking, and dedicated architectural concierges ensuring complete clarity
+            from blueprint draft to handover.</p>
         </div>
       </div>
     </div>
@@ -453,7 +1094,8 @@
   <!-- Leadership & Executive Team -->
   <section class="container section-pad">
     <div style="text-align:center;max-width:650px;margin:0 auto 40px;" class="anim-fade-up">
-      <span style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">LEADERSHIP</span>
+      <span
+        style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">LEADERSHIP</span>
       <h2 style="font-size:44px;font-weight:700;letter-spacing:-1px;">The Minds Behind RTP CONSTRUCTION</h2>
     </div>
 
@@ -465,7 +1107,8 @@
         <div class="team-info">
           <h3>Rajesh Kumar</h3>
           <div class="team-role">Founder & Principal Architect</div>
-          <p class="team-bio">22+ years in mega-structure design and urban planning. Overseen more than 150+ high-rise developments across India.</p>
+          <p class="team-bio">22+ years in mega-structure design and urban planning. Overseen more than 150+ high-rise
+            developments across India.</p>
         </div>
       </div>
 
@@ -476,7 +1119,8 @@
         <div class="team-info">
           <h3>Siddharth Rao</h3>
           <div class="team-role">Chief Structural Engineer</div>
-          <p class="team-bio">Specialist in seismic design & high-density steel matrices. Former lead structural consultant for international urban infrastructure.</p>
+          <p class="team-bio">Specialist in seismic design & high-density steel matrices. Former lead structural
+            consultant for international urban infrastructure.</p>
         </div>
       </div>
 
@@ -487,7 +1131,8 @@
         <div class="team-info">
           <h3>Elena Vance</h3>
           <div class="team-role">VP of Operations & Green Tech</div>
-          <p class="team-bio">Pioneer in green building certification and zero-waste construction methodologies across commercial developments.</p>
+          <p class="team-bio">Pioneer in green building certification and zero-waste construction methodologies across
+            commercial developments.</p>
         </div>
       </div>
     </div>
@@ -497,7 +1142,8 @@
   <section class="container section-pad">
     <div class="timeline-sec">
       <div class="anim-fade-up" style="text-align:center;margin-bottom:40px;">
-        <span style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">MILESTONES</span>
+        <span
+          style="color:var(--accent-orange);font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:12px;">MILESTONES</span>
         <h2>Our Journey of Architectural Innovation</h2>
       </div>
 
@@ -508,7 +1154,8 @@
           <span class="t-icon">▼</span>
         </div>
         <div class="timeline-body">
-          Established in Bangalore with a mission to redefine structural engineering. Completed our first 12-story commercial hub 2 months ahead of schedule.
+          Established in Bangalore with a mission to redefine structural engineering. Completed our first 12-story
+          commercial hub 2 months ahead of schedule.
         </div>
       </div>
 
@@ -519,7 +1166,8 @@
           <span class="t-icon">▼</span>
         </div>
         <div class="timeline-body">
-          Expanded operations to premium residential towers and luxury gated communities, passing 50+ completed master builds.
+          Expanded operations to premium residential towers and luxury gated communities, passing 50+ completed master
+          builds.
         </div>
       </div>
 
@@ -541,7 +1189,8 @@
           <span class="t-icon">▼</span>
         </div>
         <div class="timeline-body">
-          Crossed 242+ landmark developments delivered with a 99% client satisfaction rate and 15 national architectural honors.
+          Crossed 242+ landmark developments delivered with a 99% client satisfaction rate and 15 national architectural
+          honors.
         </div>
       </div>
     </div>
@@ -553,7 +1202,8 @@
       <img src="arix_wide_callout.jpg" alt="RTP CONSTRUCTION Executive Callout">
       <div class="callout-overlay"></div>
       <div class="callout-quote-box">
-        <h3>"Architecture is not merely about erecting walls; it is the art of sculpting spaces where human ambition thrives for generations."</h3>
+        <h3>"Architecture is not merely about erecting walls; it is the art of sculpting spaces where human ambition
+          thrives for generations."</h3>
         <span>— EXECUTIVE BOARD, RTP CONSTRUCTION</span>
       </div>
     </div>
@@ -582,13 +1232,14 @@
           <a href="tel:+15551234567">+1 (555) 123-4567</a>
         </div>
         <div class="anim-fade-up delay-300" style="text-align:right;">
-          <img src="arix_project_1.jpg" style="width:120px;height:80px;object-fit:cover;border-radius:12px;margin-bottom:20px;">
+          <img src="arix_project_1.jpg"
+            style="width:120px;height:80px;object-fit:cover;border-radius:12px;margin-bottom:20px;">
           <p style="font-size:14px;color:#888;">Build for the future.</p>
         </div>
       </div>
-      
+
       <div class="footer-huge anim-fade-up delay-400">RTP CONSTRUCTION</div>
-      
+
       <div class="footer-bottom anim-fade-up delay-400">
         <span>© 2026 RTP CONSTRUCTION Group.</span>
         <span>Privacy Policy | Terms of Service</span>
@@ -601,7 +1252,8 @@
     <div class="wa-pulse"></div>
     <span class="wa-badge" id="wa-badge">1</span>
     <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.14 4.162 4.256-1.116z"/>
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.14 4.162 4.256-1.116z" />
     </svg>
   </button>
 
@@ -613,7 +1265,10 @@
           <div class="wa-status-dot"></div>
         </div>
         <div class="wa-title">
-          <h4>RTP CONSTRUCTION <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h4>
+          <h4>RTP CONSTRUCTION <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg></h4>
           <span>Online • Typically replies instantly</span>
         </div>
       </div>
@@ -629,23 +1284,31 @@
       </div>
 
       <div class="wa-chips">
-        <button class="wa-chip" onclick="sendWAMessage('Hi, I would like to get a project cost quote.')">🏗️ Get Project Cost Quote</button>
-        <button class="wa-chip" onclick="sendWAMessage('Hi, I want to book a free architectural consultation.')">📐 Book Architecture Consultation</button>
-        <button class="wa-chip" onclick="sendWAMessage('Hi, I would like to view your latest completed projects.')">🏢 View Completed Projects</button>
-        <button class="wa-chip" onclick="sendWAMessage('Hi, I want to speak directly with your sales team.')">📞 Connect with Sales Team</button>
+        <button class="wa-chip" onclick="sendWAMessage('Hi, I would like to get a project cost quote.')">🏗️ Get Project
+          Cost Quote</button>
+        <button class="wa-chip" onclick="sendWAMessage('Hi, I want to book a free architectural consultation.')">📐 Book
+          Architecture Consultation</button>
+        <button class="wa-chip" onclick="sendWAMessage('Hi, I would like to view your latest completed projects.')">🏢
+          View Completed Projects</button>
+        <button class="wa-chip" onclick="sendWAMessage('Hi, I want to speak directly with your sales team.')">📞 Connect
+          with Sales Team</button>
       </div>
     </div>
 
     <div class="wa-footer">
-      <input type="text" id="wa-input" class="wa-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendWAMessageCustom()">
+      <input type="text" id="wa-input" class="wa-input" placeholder="Type a message..."
+        onkeydown="if(event.key==='Enter') sendWAMessageCustom()">
       <button class="wa-send-btn" onclick="sendWAMessageCustom()" aria-label="Send">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
       </button>
     </div>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       // Intersection Observer for Animations
       const observerOptions = {
         root: null,
@@ -745,4 +1408,5 @@
     }
   </script>
 </body>
+
 </html>

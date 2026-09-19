@@ -1,162 +1,75 @@
-import { useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { siteConfig } from '../config/siteData';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ScrollReelTestimonials } from './ui/scroll-reel-testimonials';
+
+const TESTIMONIALS = [
+  {
+    quote: "RTP CONSTRUCTION transformed our architectural vision into a structural masterpiece. Supreme craftsmanship!",
+    author: "Jan Dittrich — Architect, Urban Living",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+    alt: "Portrait of Jan Dittrich",
+  },
+  {
+    quote: "Building our 45,000 sq ft headquarters was seamless. Their engineering precision and timeline adherence are unmatched.",
+    author: "Michael Riddering — VP Infrastructure, Apex",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    alt: "Portrait of Michael Riddering",
+  },
+  {
+    quote: "The level of luxury finishing delivered for our residential villa exceeded every expectation. True industry leaders.",
+    author: "James Traf — Private Estate Owner",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+    alt: "Portrait of James Traf",
+  },
+  {
+    quote: "From initial structural engineering to final handover, working with RTP CONSTRUCTION was a seamless masterclass.",
+    author: "Sophia Chen — Head of Design, Horizon",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+    alt: "Portrait of Sophia Chen",
+  }
+];
 
 export default function Testimonials() {
-  const [active, setActive] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  const testimonials = siteConfig.testimonials;
-
-  const prev = () => setActive((a) => (a === 0 ? testimonials.length - 1 : a - 1));
-  const next = () => setActive((a) => (a === testimonials.length - 1 ? 0 : a + 1));
-
   return (
-    <section ref={ref} style={{ background: '#0d0f11', padding: '110px 0' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+    <section id="testimonials" style={{ background: '#0A0C0E', padding: '110px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 16 }}
         >
-          <div style={{ height: 2, width: 32, background: '#F97316' }} />
-          <span style={{ color: '#F97316', fontSize: 12, fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase' }}>
-            Testimonials
+          <div style={{ height: 2, width: 32, background: '#E8913C' }} />
+          <span style={{ color: '#E8913C', fontSize: 12, fontWeight: 700, letterSpacing: 4, textTransform: 'uppercase' }}>
+            Client Endorsements
           </span>
-          <div style={{ height: 2, width: 32, background: '#F97316' }} />
+          <div style={{ height: 2, width: 32, background: '#E8913C' }} />
         </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           style={{
-            fontFamily: 'Outfit, sans-serif',
+            fontFamily: "'Syne', sans-serif",
             fontWeight: 800,
-            fontSize: 'clamp(26px, 4vw, 46px)',
-            color: '#F7F7F5',
-            marginBottom: 60,
+            fontSize: 'clamp(28px, 4.5vw, 48px)',
+            color: '#EDE7DC',
+            marginBottom: 48,
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            letterSpacing: '-0.02em',
           }}
         >
           What Our Clients Say
         </motion.h2>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.07)',
-              borderRadius: 24,
-              padding: '60px 52px',
-              position: 'relative',
-            }}>
-              <div style={{
-                position: 'absolute', top: 32, left: 40,
-                width: 56, height: 56,
-                background: 'rgba(249,115,22,0.1)',
-                borderRadius: 12,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <Quote size={24} color="#F97316" />
-              </div>
-
-              <p style={{
-                color: '#E8E8E5',
-                fontSize: 20,
-                lineHeight: 1.8,
-                fontStyle: 'italic',
-                marginBottom: 40,
-                marginTop: 40,
-              }}>
-                "{testimonials[active].text}"
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <div style={{
-                  width: 48, height: 48,
-                  background: 'linear-gradient(135deg, #F97316, #fba565)',
-                  borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: 8,
-                }}>
-                  <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: 18, color: '#101214' }}>
-                    {testimonials[active].author[0]}
-                  </span>
-                </div>
-                <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 17, color: '#F7F7F5' }}>
-                  {testimonials[active].author}
-                </div>
-                <div style={{ color: '#F97316', fontSize: 13, fontWeight: 500 }}>
-                  {testimonials[active].role}, {testimonials[active].company}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Controls */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, marginTop: 36 }}>
-          <button
-            onClick={prev}
-            style={{
-              width: 48, height: 48,
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer',
-              color: '#F7F7F5',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#F97316'; e.currentTarget.style.borderColor = '#F97316'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
-          >
-            <ChevronLeft size={20} />
-          </button>
-
-          <div style={{ display: 'flex', gap: 8 }}>
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                style={{
-                  width: i === active ? 28 : 8,
-                  height: 8,
-                  borderRadius: 4,
-                  background: i === active ? '#F97316' : 'rgba(255,255,255,0.15)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  padding: 0,
-                }}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={next}
-            style={{
-              width: 48, height: 48,
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer',
-              color: '#F7F7F5',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#F97316'; e.currentTarget.style.borderColor = '#F97316'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
-          >
-            <ChevronRight size={20} />
-          </button>
+        <div className="w-full flex justify-center">
+          <ScrollReelTestimonials 
+            testimonials={TESTIMONIALS} 
+            className="border-white/10 bg-[#101317] text-[#EDE7DC]"
+          />
         </div>
       </div>
     </section>

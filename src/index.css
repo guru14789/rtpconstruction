@@ -354,3 +354,33 @@ ul, ol {
 }
 
 .container::-webkit-scrollbar { display: none; }
+
+/* Scroll Reel Testimonials Animations */
+@keyframes scroll-reel-char-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-reel-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.scroll-reel-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: scroll-reel-char-rise 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-reel-exit {
+  animation: scroll-reel-exit 240ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}

@@ -59,7 +59,7 @@ export default function Footer() {
               <span style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
-                fontSize: 18,
+                fontSize: 25,
                 letterSpacing: -0.02,
                 color: 'var(--color-white)',
               }}>
@@ -79,18 +79,22 @@ export default function Footer() {
           {/* Navigation Columns */}
           {[
             { title: 'Company', links: navLinks.slice(0, 2) },
-            { title: 'Services', links: [
-              { label: 'Residential', href: '#services' },
-              { label: 'Commercial', href: '#services' },
-              { label: 'Interior Design', href: '#services' },
-              { label: 'Project Management', href: '#services' },
-            ]},
-            { title: 'Connect', links: [
-              { label: 'Contact Us', href: '#contact' },
-              { label: 'Instagram', href: '#' },
-              { label: 'LinkedIn', href: '#' },
-              { label: 'Twitter', href: '#' },
-            ]},
+            {
+              title: 'Services', links: [
+                { label: 'Residential', href: '#services' },
+                { label: 'Commercial', href: '#services' },
+                { label: 'Interior Design', href: '#services' },
+                { label: 'Project Management', href: '#services' },
+              ]
+            },
+            {
+              title: 'Connect', links: [
+                { label: 'Contact Us', href: '#contact' },
+                { label: 'Instagram', href: '#' },
+                { label: 'LinkedIn', href: '#' },
+                { label: 'Twitter', href: '#' },
+              ]
+            },
           ].map((col, colIndex) => (
             <motion.nav
               key={col.title}
