@@ -37,14 +37,14 @@ export function HeroScrollDemo() {
           <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.85))" }}></div>
           
           {/* Content matching the original hero */}
-          <div className="container relative z-20 h-full flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end pb-8 sm:pb-12 md:pb-16">
+          <div className="container relative z-20 h-full flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end pb-12 sm:pb-16 md:pb-24">
             <div className="mt-auto">
-              <h1 style={{color: "white", fontSize: "clamp(24px, 5vw, 60px)", lineHeight: "1.1", fontWeight: "700", maxWidth: "600px", textTransform: "uppercase", letterSpacing: "-1px", marginBottom:"20px", textAlign: "left"}}>
+              <h1 style={{color: "white", fontSize: "clamp(24px, 5vw, 60px)", lineHeight: "1.1", fontWeight: "700", maxWidth: "600px", textTransform: "uppercase", letterSpacing: "-1px", marginBottom:"24px", textAlign: "left"}}>
                 Building the Future with Precision
               </h1>
-              <a href="#about" style={{display: "inline-flex", alignItems: "center", gap: "8px", background: "white", color: "black", padding: "10px 20px", borderRadius: "40px", fontWeight: "600", textDecoration: "none", fontSize: "14px"}}>
+              <a href="#about" style={{display: "inline-flex", alignItems: "center", gap: "8px", background: "white", color: "black", padding: "12px 24px", borderRadius: "40px", fontWeight: "600", textDecoration: "none", fontSize: "14px", boxShadow: "0 4px 14px rgba(0,0,0,0.25)"}}>
                 Learn More
-                <span style={{width: "16px", height: "16px", background: "#ff6a00", borderRadius: "50%", display: "flex", alignItems: "center", justify: "center", color: "white", padding: "2px"}}>
+                <span style={{width: "18px", height: "18px", background: "#ff6a00", borderRadius: "50%", display: "flex", alignItems: "center", justify: "center", color: "white", padding: "2px"}}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </span>
               </a>

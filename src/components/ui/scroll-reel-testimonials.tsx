@@ -251,7 +251,7 @@ export function ScrollReelTestimonials({
       {/* Reel section */}
       <div
         aria-hidden="true"
-        className="relative h-60 w-full shrink-0 self-center overflow-hidden rounded-xl bg-[#0A0C0E]/60 md:h-[300px] md:w-[360px]"
+        className="relative h-60 w-full shrink-0 self-center overflow-hidden rounded-xl bg-[#0A0C0E]/60 md:h-[300px] md:w-[380px]"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
@@ -303,7 +303,7 @@ export function ScrollReelTestimonials({
       </div>
 
       {/* Content section */}
-      <div className="flex min-w-0 flex-1 flex-col justify-between self-stretch px-4 py-4 md:px-8 md:py-6">
+      <div className="flex min-w-0 flex-1 flex-col justify-center gap-8 self-center px-4 py-4 md:px-8 md:py-6">
         <div className="flex flex-col gap-4">
           {/* Amber Quote Icon */}
           <svg
@@ -355,7 +355,7 @@ export function ScrollReelTestimonials({
         </div>
 
         {/* Controls - Prominent Buttons aligned cleanly */}
-        <div className="mt-8 flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => paginate(-1)}

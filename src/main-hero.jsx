@@ -4,6 +4,7 @@ import './tailwind.css'
 import { HeroScrollDemo } from './components/ui/demo'
 import LoadingFillText from './components/ui/motion-loading-fill-text'
 import Testimonials from './components/Testimonials'
+import EloResultsSection from './components/EloResultsSection'
 
 const heroRoot = document.getElementById('react-hero-root');
 if (heroRoot) {
@@ -11,6 +12,15 @@ if (heroRoot) {
     <React.StrictMode>
       <LoadingFillText />
       <HeroScrollDemo />
+    </React.StrictMode>,
+  )
+}
+
+const projectsRoot = document.getElementById('react-projects-root');
+if (projectsRoot) {
+  createRoot(projectsRoot).render(
+    <React.StrictMode>
+      <EloResultsSection />
     </React.StrictMode>,
   )
 }
@@ -23,3 +33,4 @@ if (testimonialsRoot) {
     </React.StrictMode>,
   )
 }
+

@@ -27,12 +27,27 @@ function useFillProgress(onComplete?: () => void) {
   return progress
 }
 
+const LOADER_KEY = "rtpLoaderSeen"
+
+function shouldSkipLoader() {
+  if (typeof window === "undefined") return false
+  try {
+    if (window.location.hash || sessionStorage.getItem(LOADER_KEY)) return true
+  } catch (e) {
+    /* storage unavailable: just play the loader */
+  }
+  return false
+}
+
 export function LoadingFillText({ onComplete }: { onComplete?: () => void }) {
+  const [skip] = useState(shouldSkipLoader)
   const [isExiting, setIsExiting] = useState(false)
-  const [hidden, setHidden] = useState(false)
+  const [hidden, setHidden] = useState(skip)
 
   const progress = useFillProgress(() => {
+    if (skip) return
     setIsExiting(true)
+    try { sessionStorage.setItem(LOADER_KEY, "1") } catch (e) { /* ignore */ }
     setTimeout(() => {
       setHidden(true)
       document.body.classList.remove("rtp-loading")
@@ -43,6 +58,7 @@ export function LoadingFillText({ onComplete }: { onComplete?: () => void }) {
   const clipPath = useTransform(progress, [0, 1], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"])
 
   useEffect(() => {
+    if (skip) return
     document.body.classList.add("rtp-loading")
     return () => {
       document.body.classList.remove("rtp-loading")
