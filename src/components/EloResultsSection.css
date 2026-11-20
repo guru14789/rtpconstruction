@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
-
 /* ========================================================
    Elo One Results Section Styling
    Responsive unit system based on 838x527 reference frame
@@ -9,7 +7,7 @@
   --u: min(100vw / 838, 100vh / 527);
   background-color: #FDFDFD;
   color: #000000;
-  font-family: 'Lexend', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   padding: calc(60 * var(--u)) calc(24 * var(--u)) calc(70 * var(--u));
   position: relative;
   overflow: hidden;
@@ -49,11 +47,11 @@
   font-weight: 600;
   letter-spacing: calc(1.5 * var(--u));
   text-transform: uppercase;
-  color: #B8460F;
-  background: rgba(184, 70, 15, 0.08);
+  color: #9A3408;
+  background: rgba(154, 52, 8, 0.08);
   padding: calc(4 * var(--u)) calc(12 * var(--u));
   border-radius: 999px;
-  border: 1px solid rgba(184, 70, 15, 0.2);
+  border: 1px solid rgba(154, 52, 8, 0.25);
 }
 
 /* Headline with rising word entrance */

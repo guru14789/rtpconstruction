@@ -1,6 +1,5 @@
 "use client";
-import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import React, { useRef, useEffect } from "react";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -10,29 +9,57 @@ export const ContainerScroll = ({
   children: React.ReactNode;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-  });
-  const [isMobile, setIsMobile] = React.useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+  useEffect(() => {
+    let rafId = 0;
+    let ticking = false;
+
+    const updateTransform = () => {
+      ticking = false;
+      const el = containerRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const total = Math.max(1, rect.height - vh);
+      const rawProgress = -rect.top / total;
+      const progress = Math.min(1, Math.max(0, rawProgress));
+
+      const isMobile = window.innerWidth <= 768;
+      const startScale = isMobile ? 0.7 : 1.05;
+      const endScale = isMobile ? 0.9 : 1;
+
+      const rotate = 20 * (1 - progress);
+      const scale = startScale + (endScale - startScale) * progress;
+      const translate = -100 * progress;
+
+      if (headerRef.current) {
+        headerRef.current.style.transform = `translate3d(0, ${translate.toFixed(2)}px, 0)`;
+      }
+      if (cardRef.current) {
+        cardRef.current.style.transform = `rotateX(${rotate.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
+      }
     };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        rafId = requestAnimationFrame(updateTransform);
+      }
+    };
+
+    updateTransform();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+
     return () => {
-      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
-
-  const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
-  };
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
@@ -45,61 +72,39 @@ export const ContainerScroll = ({
           perspective: "1000px",
         }}
       >
-        <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
-          {children}
-        </Card>
+        <div
+          ref={headerRef}
+          style={{
+            margin: "0 auto",
+            textAlign: "center",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            willChange: "transform",
+          }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          {titleComponent}
+        </div>
+        <div
+          ref={cardRef}
+          style={{
+            transform: "rotateX(20deg) scale(1.05)",
+            margin: "-3rem auto 0 auto",
+            width: "100%",
+            maxWidth: "none",
+            willChange: "transform",
+            boxShadow:
+              "0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1)",
+          }}
+          className="h-[25rem] sm:h-[40rem] md:h-[55rem] rounded-2xl md:rounded-3xl border-t-2 border-white/20 bg-[#121212] overflow-hidden"
+        >
+          <div className="h-full w-full overflow-hidden bg-zinc-900">
+            {children}
+          </div>
+        </div>
       </div>
     </div>
-  );
-};
-
-export const Header = ({ translate, titleComponent }: any) => {
-  return (
-    <motion.div
-      style={{
-        translateY: translate,
-        margin: "0 auto",
-        textAlign: "center",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      }}
-      className="max-w-5xl mx-auto text-center"
-    >
-      {titleComponent}
-    </motion.div>
-  );
-};
-
-export const Card = ({
-  rotate,
-  scale,
-  children,
-  translate
-}: {
-  rotate: MotionValue<number>;
-  scale: MotionValue<number>;
-  translate: MotionValue<number>;
-  children: React.ReactNode;
-}) => {
-  return (
-    <motion.div
-      style={{
-        rotateX: rotate,
-        scale,
-        margin: "-3rem auto 0 auto",
-        width: "100%",
-        maxWidth: "none",
-        boxShadow:
-          "0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1)",
-      }}
-      className="h-[25rem] sm:h-[40rem] md:h-[55rem] rounded-2xl md:rounded-3xl border-t-2 border-white/20 bg-[#121212] overflow-hidden"
-    >
-      <div className="h-full w-full overflow-hidden bg-gray-100 dark:bg-zinc-900">
-        {children}
-      </div>
-    </motion.div>
   );
 };

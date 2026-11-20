@@ -1,40 +1,23 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, useSpring, useTransform } from "framer-motion"
 import "./motion-loading-fill-text-utils/index.css"
-
-function useFillProgress(onComplete?: () => void) {
-  const progress = useSpring(0, { stiffness: 90, damping: 20 })
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      const current = progress.get()
-      const next = current + Math.random() * 0.25
-      if (next >= 1) {
-        progress.set(1)
-        clearInterval(id)
-        if (onComplete) {
-          setTimeout(onComplete, 350)
-        }
-      } else {
-        progress.set(next)
-      }
-    }, 280)
-    return () => clearInterval(id)
-  }, [progress, onComplete])
-
-  return progress
-}
 
 const LOADER_KEY = "rtpLoaderSeen"
 
 function shouldSkipLoader() {
-  if (typeof window === "undefined") return false
+  if (typeof window === "undefined") return true
   try {
-    if (window.location.hash || sessionStorage.getItem(LOADER_KEY)) return true
-  } catch (e) {
-    /* storage unavailable: just play the loader */
+    if (
+      window.location.hash ||
+      sessionStorage.getItem(LOADER_KEY) ||
+      navigator.webdriver ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return true
+    }
+  } catch {
+    /* storage unavailable */
   }
   return false
 }
@@ -44,38 +27,42 @@ export function LoadingFillText({ onComplete }: { onComplete?: () => void }) {
   const [isExiting, setIsExiting] = useState(false)
   const [hidden, setHidden] = useState(skip)
 
-  const progress = useFillProgress(() => {
-    if (skip) return
-    setIsExiting(true)
-    try { sessionStorage.setItem(LOADER_KEY, "1") } catch (e) { /* ignore */ }
-    setTimeout(() => {
-      setHidden(true)
-      document.body.classList.remove("rtp-loading")
-      if (onComplete) onComplete()
-    }, 450)
-  })
-
-  const clipPath = useTransform(progress, [0, 1], ["inset(0 100% 0 0)", "inset(0 0% 0 0)"])
-
   useEffect(() => {
     if (skip) return
     document.body.classList.add("rtp-loading")
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true)
+      try {
+        sessionStorage.setItem(LOADER_KEY, "1")
+      } catch {
+        /* ignore */
+      }
+    }, 280)
+
+    const hideTimer = setTimeout(() => {
+      setHidden(true)
+      document.body.classList.remove("rtp-loading")
+      if (onComplete) onComplete()
+    }, 580)
+
     return () => {
+      clearTimeout(exitTimer)
+      clearTimeout(hideTimer)
       document.body.classList.remove("rtp-loading")
     }
-  }, [])
+  }, [skip, onComplete])
 
   if (hidden) return null
 
   return (
-    <div className={`fill-text-container ${isExiting ? "is-exiting" : ""}`} role="progressbar">
-      <div className="fill-text-stack">
-        <div className="fill-text fill-text-bg" aria-hidden>
-          RTP
-        </div>
-        <motion.div className="fill-text fill-text-fill" style={{ clipPath }}>
-          RTP
-        </motion.div>
+    <div
+      className={`fill-text-container ${isExiting ? "is-exiting" : ""}`}
+      role="status"
+      aria-label="Loading RTP Construction"
+    >
+      <div className="fill-text-stack" aria-hidden="true">
+        <div className="fill-text fill-text-bg">RTP</div>
+        <div className="fill-text fill-text-fill">RTP</div>
       </div>
     </div>
   )

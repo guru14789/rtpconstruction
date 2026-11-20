@@ -98,10 +98,7 @@ function Featured({ src, alt }: { src: string; alt?: string }) {
   );
 }
 
-/* Per-character split. Spaces live between word spans as plain text
- * nodes so natural line-wrapping is preserved. Each char rises in
- * with an inline animation-delay; while the block is exiting, the
- * char animation is removed so in-flight rises are killed. */
+/* Per-word split so far fewer animated DOM nodes are created. */
 function Chars({
   text,
   startIndex,
@@ -111,32 +108,19 @@ function Chars({
   startIndex: number;
   staggerMs: number;
 }) {
-  let idx = startIndex;
   const words = text.split(" ");
   return (
     <>
       {words.map((word, wi) => {
-        const wordSpan = (
-          <span key={wi} className="inline-block whitespace-nowrap">
-            {Array.from(word).map((ch, ci) => {
-              const delay = idx * staggerMs;
-              idx++;
-              return (
-                <span
-                  key={ci}
-                  className="scroll-reel-char"
-                  style={{ animationDelay: `${delay}ms` }}
-                >
-                  {ch}
-                </span>
-              );
-            })}
-          </span>
-        );
-        if (wi < words.length - 1) idx++;
+        const delay = (startIndex + wi * 3) * staggerMs;
         return (
           <React.Fragment key={wi}>
-            {wordSpan}
+            <span
+              className="scroll-reel-char inline-block whitespace-nowrap"
+              style={{ animationDelay: `${delay}ms` }}
+            >
+              {word}
+            </span>
             {wi < words.length - 1 ? " " : null}
           </React.Fragment>
         );
@@ -394,7 +378,7 @@ export function ScrollReelTestimonials({
               <path d="m4.5 2.5 4 3.5-4 3.5" />
             </svg>
           </button>
-          <span className="ml-2 text-xs font-semibold tracking-wider text-white/40 uppercase">
+          <span className="ml-2 text-xs font-semibold tracking-wider text-white/75 uppercase">
             {displayIndex + 1} / {count}
           </span>
         </div>
